@@ -8,8 +8,10 @@
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
   <script type="module">
     const elemProps = {className: 'container'}
-    const elem = React.createElement('div', elemProps, 'Hello World')
+    const elem1 = React.createElement('span', {}, 'Hello ')
+    const elem2 = React.createElement('span', {}, 'World')
+    const container = React.createElement('div', elemProps, [elem1, elem2])
     const rootElem = ReactDOM.createRoot(document.getElementById('root'))
-    rootElem.render(elem)
+    rootElem.render(container)
   </script>
 </body>
