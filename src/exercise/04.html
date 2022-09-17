@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
     const message = props => <div className="message" {...props} />
@@ -43,16 +44,16 @@
 
     const MessageEC3 = ({ greeting, subject }) => <div className="message">{greeting}, {subject}</div>
 
-    const PropTypes = {
-      string(props, propName, componentName) {
-        if (typeof props[propName] !== 'string' && !props[propName]) {
-          return new Error(`${propName} does not exist!`)
-        }
-        if (typeof props[propName] !== 'string' && props[propName]) {
-          return new Error(`${propName} is not a string`)
-        }
-      },
-    }
+//    const PropTypes = {
+//      string(props, propName, componentName) {
+//        if (typeof props[propName] !== 'string' && !props[propName]) {
+//          return new Error(`${propName} does not exist!`)
+//        }
+//        if (typeof props[propName] !== 'string' && props[propName]) {
+//          return new Error(`${propName} is not a string`)
+//        }
+//      },
+//    }
 
     MessageEC3.propTypes = {
       greeting: PropTypes.string,
@@ -66,7 +67,24 @@
       </div>
     )
 
+    // =================================
+
+    const MessageEC4 = ({ greeting, subject }) => <div className="message">{greeting}, {subject}</div>
+
+    MessageEC4.propTypes = {
+      greeting: PropTypes.string.isRequired,
+      subject: PropTypes.string.isRequired,
+    }
+
+    const elemEC4 = (
+      <div className="container">
+        <MessageEC4 greeting={5} subject="World" />
+        <MessageEC4 greeting="Goodbye" />
+      </div>
+    )
+
+
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
-    ReactDOM.createRoot(document.getElementById('root')).render(elemEC3)
+    ReactDOM.createRoot(document.getElementById('root')).render(elemEC4)
   </script>
 </body>
