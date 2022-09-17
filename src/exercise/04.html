@@ -83,8 +83,17 @@
       </div>
     )
 
+    // =================================
+
+    const MessageEC5 = ({ greeting, subject }) => <div className="message">{greeting}, {subject}</div>
+    const elemEC5 = (
+      <>
+        <MessageEC5 greeting="Hello" subject="World" />
+        <MessageEC5 greeting="Goodbye" subject="World" />
+      </>
+    )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
-    ReactDOM.createRoot(document.getElementById('root')).render(elemEC4)
+    ReactDOM.createRoot(document.getElementById('root')).render(elemEC5)
   </script>
 </body>
