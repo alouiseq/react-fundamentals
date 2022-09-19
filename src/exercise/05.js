@@ -32,14 +32,21 @@ const LargeBox = () => (
   </Box>
 );
 
+// EC2 =========================
+
+const Box2 = ({size, style}) => (
+  <div className={`box box--${size}`} style={{fontStyle: 'italic', ...style}}>
+    {size} {` ${style.backgroundColor} box`}
+  </div>
+);
 
 
 function App() {
   return (
     <div>
-      <SmallBox />
-      <MediumBox />
-      <LargeBox />
+      <Box2 size="small" style={{backgroundColor: 'lightblue'}} />
+      <Box2 size="medium" style={{backgroundColor: 'pink'}} />
+      <Box2 size="large" style={{backgroundColor: 'orange'}} />
     </div>
   )
 }
