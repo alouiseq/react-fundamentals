@@ -6,6 +6,7 @@ import * as React from 'react'
 function UsernameForm({onSubmitUsername}) {
   const inputRef = React.useRef()
   const [error, setError] = React.useState()
+  const [username, setUsername] = React.useState('')
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,11 +23,16 @@ function UsernameForm({onSubmitUsername}) {
     setError(isValid ? null : 'Username must be lower case')
   }
 
+  // EC3
+  const handleChangeEC3 = e => {
+    setUsername(e.target.value.toLowerCase())
+  }
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <label>Username:</label>
-        <input type="text" ref={inputRef} onChange={handleChange} />
+        <input type="text" ref={inputRef} onChange={handleChangeEC3} value={username} />
       </div>
       <button type="submit" disabled={error ? true : false}>Submit</button>
       {error && <div role="alert">{error}</div>}
@@ -41,3 +47,4 @@ function App() {
 }
 
 export default App
+
